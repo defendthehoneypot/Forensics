@@ -1,3 +1,4 @@
+#Exclude local files
 tools/
 hosts.txt
 
