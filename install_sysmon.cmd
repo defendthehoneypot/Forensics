@@ -1,8 +1,9 @@
 @echo off
 CLS
 REM ------------------------------------------------------------------------------------------------------------------------
-REM install_sysmon
+REM install_sysmon v1.0
 REM by Doug Richmond (doug@defendthehoneypot.com)
+REM by Bryan Bent (beanious@gmail.com)
 REM
 REM About:
 REM Script to automate installation of sysmon across multiple systems
