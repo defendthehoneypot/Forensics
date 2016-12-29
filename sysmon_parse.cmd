@@ -7,7 +7,7 @@ REM
 REM About:
 REM Script to automate parsing of the event log for Microsoft's Sysinternal tool Sysmon.
 REM Sysmon Download and Info: http://technet.microsoft.com/en-us/sysinternals/dn798348
-REM 
+REM Edited to use date-time stamp and to append files instead of overwrite
 REM System Requirements: Python 2.7, .NET 4.5
 REM 
 REM Additional Tools Needed:
