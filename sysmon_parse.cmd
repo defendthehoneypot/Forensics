@@ -56,7 +56,7 @@ tools\logparser\logparser -i:evt -o:csv "Select RecordNumber,TO_UTCTIME(TimeGene
 REM
 REM ------------------------------------------------------------------------------------------------------------------------
 REM Remove copied Sysmon Event Log as it is no longer needed.
-REM del %scriptlocation%Results_%dtstamp%\*.evtx
+del %scriptlocation%Results_%dtstamp%\*.evtx
 REM
 REM ------------------------------------------------------------------------------------------------------------------------
 REM Extract Information from text file using TekDefense's tekcollect.py tool.
