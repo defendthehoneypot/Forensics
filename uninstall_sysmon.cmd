@@ -1,7 +1,7 @@
 @echo off
 CLS
 REM ------------------------------------------------------------------------------------------------------------------------
-REM install_sysmon v1.0
+REM Uninstall_sysmon v1.0
 REM by Doug Richmond (doug@defendthehoneypot.com)
 REM by Bryan Bent (beanious@gmail.com)
 REM
@@ -20,23 +20,18 @@ REM			- tools
 REM				- sysmon
 REM				- psexec
 echo.
-echo #######################################
-echo Create Remote Directory for symson
-echo #######################################
-echo.
-cd %userprofile%\Documents\GitHub\Forensics\
-for /F %%i in (hosts.txt) do md \\%%i\c$\windows\sysmon
 
 echo.
 echo #######################################
-echo Copy sysmon and config file
+echo Uninstall sysmon
 echo #######################################
 echo.
-for /F %%i in (hosts.txt) do xcopy /y %userprofile%\documents\GitHub\Forensics\tools\sysmon\* \\%%i\c$\windows\sysmon\
+for /F %%i in (hosts.txt) do %userprofile%\documents\GitHub\Forensics\tools\psexec\psexec64.exe /accepteula \\%%i c:\windows\sysmon\sysmon.exe -u
 
 echo.
 echo #######################################
-echo Install sysmon
+echo Delete file remnants
 echo #######################################
 echo.
-for /F %%i in (hosts.txt) do %userprofile%\documents\GitHub\Forensics\tools\psexec\psexec64.exe /accepteula \\%%i c:\windows\sysmon\sysmon.exe -i c:\windows\sysmon\config-client.xml -accepteula
+for /F %%i in (hosts.txt) do %userprofile%\documents\GitHub\Forensics\tools\psexec\psexec64.exe /accepteula \\%%i cmd /c "del c:\windows\sysmon /q"
+for /F %%i in (hosts.txt) do %userprofile%\documents\GitHub\Forensics\tools\psexec\psexec64.exe /accepteula \\%%i cmd /c "rmdir c:\windows\sysmon"
