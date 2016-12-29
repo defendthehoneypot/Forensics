@@ -1,9 +1,6 @@
-# CrowdStrike tool used to parse Sysmon files.  No intention of attemtpting to submit a pull request to merge with original location:  https://github.com/CrowdStrike/Forensics
+# CrowdStrike tool used to parse Sysmon files.  Updated to pull files from multiple sources
 
-2016-12-26 
-- updated tool to pull files from remote systems. (Not tested in production environment)
-- Future update to add batch to push sysmon with config file.  (In progress)
+-install_sysmon.cmd pushes/installs sysmon to multiple machines.
 
-2016-12-xx
+-sysmon_parse.cmd original batch file from @crowdstrike that has been updated to collect sysmon logs from a list of remote machines.
 
-test
