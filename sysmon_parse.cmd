@@ -36,8 +36,9 @@ REM Setup:
 REM Set base folder, set input source file if needed, and make Results directory.
 SET scriptlocation=%~dp0
 SET src=%1
-SET dtstamp=%date:~-4%%date:~4,2%%date:~7,2%
-mkdir Results_%dtstamp%
+cd %userprofile%\Documents\GitHub\Forensics
+SET dtstamp=%date:~-4%%date:~4,2%%date:~7,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%
+md Results_%dtstamp%
 IF EXIST %src% GOTO parse
 REM
 REM ------------------------------------------------------------------------------------------------------------------------
@@ -68,7 +69,7 @@ python tekcollect.py -f %scriptlocation%Results_%dtstamp%\sysmon_parsed.txt -t S
 python tekcollect.py -f %scriptlocation%Results_%dtstamp%\sysmon_parsed.txt -t SHA256 >> %scriptlocation%Results_%dtstamp%\SHA256Hashes.txt
 python tekcollect.py -f %scriptlocation%Results_%dtstamp%\sysmon_parsed.txt -t domain >> %scriptlocation%Results_%dtstamp%\Domains.txt
 python tekcollect.py -f %scriptlocation%Results_%dtstamp%\sysmon_parsed.txt -t url >> %scriptlocation%Results_%dtstamp%\URL.txt
-ECHO begin > %scriptlocation%Results_%dtstamp%\IPs.txt
+ECHO begin >> %scriptlocation%Results_%dtstamp%\IPs.txt
 ECHO verbose >> %scriptlocation%Results_%dtstamp%\IPs.txt
 python tekcollect.py -f %scriptlocation%Results_%dtstamp%\sysmon_parsed.txt -t ip4 >> %scriptlocation%Results_%dtstamp%\IPs.txt
 ECHO end >> %scriptlocation%Results_%dtstamp%\IPs.txt
